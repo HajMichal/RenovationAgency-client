@@ -2,7 +2,7 @@ import "./LoginForm.sass";
 import { Button, PasswordInput, TextInput, Text } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../fetchData/user/login";
 
 interface Inputs {
@@ -11,8 +11,12 @@ interface Inputs {
 }
 
 export const LoginForm = () => {
-  const { mutate } = useMutation({
+  const navigate = useNavigate();
+  const { mutate, isError } = useMutation({
     mutationFn: login,
+    onSuccess: () => {
+      navigate("/advertisements");
+    },
   });
   const { register, handleSubmit } = useForm<Inputs>();
 
@@ -27,14 +31,14 @@ export const LoginForm = () => {
         size="md"
         label="Email"
         placeholder="Type here..."
-        error={""}
+        error={isError && "Something went wrong"}
       />
       <PasswordInput
         {...register("password", { required: true })}
         size="md"
         label="Password"
         placeholder="Type here..."
-        error={""}
+        error={isError && "Something went wrong"}
       />
       <Text
         style={{ width: "100%", textAlign: "center" }}
