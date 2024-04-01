@@ -1,16 +1,23 @@
-.mainImg
+@use '../../pages/breakpoints.scss'
+@import '../../pages/breakpoints.scss'
+
+#mainImg 
     width: 45vw
     z-index: 12
     position: absolute
     margin-left: 4vw
     margin-top: 15vw
 
-.backgroundImg
+
+#backgroundImg
     width: 35vw
     z-index: 9
     position: absolute
     
-#img
+    
+#imgContainer
     margin-top: -15vw
     display: flex
     align-items: center
+    @include media("<=tablet")
+        display: none
