@@ -1,4 +1,3 @@
-import React from "react";
 import { BlackLogo } from "../../icons";
 import { Text } from "@mantine/core";
 import "./Logo.sass";
