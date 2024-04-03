@@ -1,0 +1,40 @@
+@use '../../pages/main'
+
+#cardContainer
+    display: flex
+    height: 10rem
+    width: 100%
+    background-color: white
+    -webkit-box-shadow: 0px 11px 33px -26px main.$dark
+    -moz-box-shadow: 0px 11px 33px -26px main.$dark
+    box-shadow: 0px 11px 33px -26px main.$dark
+
+#cardContent
+    display: flex
+    flex-direction: column
+    padding: 10px
+    justify-content: space-around
+
+#cardImage
+    height: 10rem
+    width: 17rem
+    object-fit: cover
+
+#bottomSection
+    display: flex
+    gap: 2rem
+
+#title 
+    font-size: 22px
+    font-family: main.$font-stack
+    font-weight: 500
+    color: main.$dark
+
+#bottomText 
+    display: flex
+    align-items: center
+    gap: 5px    
+    font-size: 20px
+    font-weight: 600
+    color: main.$dark
+

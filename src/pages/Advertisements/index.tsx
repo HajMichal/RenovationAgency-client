@@ -1,18 +1,38 @@
 import "./Advertisements.sass";
-import { DoubleInput, Logo } from "../../components";
+import {
+  AdvertisementCard,
+  AdvertsCount,
+  DoubleInput,
+  Logo,
+  NavBar,
+} from "../../components";
 import { Dollar, Home, Search } from "../../icons";
-import { Text } from "@mantine/core";
+import { useQuery } from "@tanstack/react-query";
+import { getAllBuildings } from "../../fetchData/building/getAllBuildings";
 
 const Advertisements = () => {
+  const { data: allBUildings } = useQuery({
+    queryKey: ["buildingsData"],
+    queryFn: () =>
+      getAllBuildings({
+        page: "0",
+        city: "",
+        gtArea: "",
+        ltArea: "",
+        gtPrice: "",
+        ltPrice: "",
+        zipcode: "",
+      }),
+  });
+  console.log(allBUildings);
   return (
     <div id="container">
-      <div style={{ width: "100vw" }}>
+      <div id="topBar">
         <Logo />
+        <NavBar />
       </div>
       <div id="advertContent">
-        <div>
-          <Text>{123}</Text> adverts in your country <Text>!</Text>
-        </div>
+        <AdvertsCount />
         <div id="searchform">
           <DoubleInput
             icon={<Search />}
@@ -36,6 +56,14 @@ const Advertisements = () => {
               className="bottomInput"
             />
           </div>
+        </div>
+        <div id="advertisements">
+          <AdvertisementCard
+            title="I need someone to help with renovation my bathroom"
+            price="12,500"
+            area="30"
+            city="Cracow"
+          />
         </div>
       </div>
     </div>

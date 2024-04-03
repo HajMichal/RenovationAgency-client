@@ -17,18 +17,20 @@ export const DoubleInput = ({
   className,
 }: DoubleInput) => {
   return (
-    <Input.Wrapper label={label}>
+    <Input.Wrapper id="wrapper" label={label}>
       {number ? (
         <div style={{ display: "flex" }}>
           <NumberInput
             placeholder={placeholders[0]}
             leftSection={icon}
             className={className}
+            size="lg"
             hideControls
           />
           <NumberInput
             placeholder={placeholders[1]}
             className={className}
+            size="lg"
             hideControls
           />
         </div>
@@ -36,13 +38,13 @@ export const DoubleInput = ({
         <div style={{ display: "flex" }}>
           <Input
             placeholder={placeholders[0]}
-            size="md"
+            size="lg"
             leftSection={icon}
             className={className}
           />
           <Input
             placeholder={placeholders[1]}
-            size="md"
+            size="lg"
             className={className}
           />
         </div>
