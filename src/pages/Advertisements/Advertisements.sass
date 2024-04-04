@@ -1,9 +1,11 @@
 @use '../../pages/main'
     
-#container
+#advertContainer
     display: flex
     flex-direction: column
     align-items: center
+    overflow-x: hidden
+    background-color: main.$background
 
 #topBar
     width: 100vw,
@@ -18,8 +20,9 @@
     align-items: center
     max-width: 1000px
 
+
 #searchform
-    background-color: main.$white
+    background-color: main.$primary
     padding: 3vw
     padding-top: 2vw
     height: fit-content
@@ -32,4 +35,5 @@
 
 #advertisements
     margin-top: 2rem
+    margin-bottom: 2rem
     width: 100%

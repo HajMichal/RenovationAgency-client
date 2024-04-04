@@ -1,14 +1,24 @@
 $font-stack: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
-
-$brand: #FF5C00,
-$background: #F6F8FC,
-$white: #FFFF,
-$dark: #464646,
-$black: #0E0E0E,
+$dark-theme: true !default
+  
+$brand: #FF5C00
+$background: #F6F8FC
+$primary: #FFFF
+$fontColor: #464646
+$black: #0E0E0E
 $lightGray: #C7C7C7
 
+@if $dark-theme
+  $brand: #FF5C00,
+  $background: #202020,
+  $primary: #A9A9A9,
+  $fontColor: #464646,
+  $black: #0E0E0E,
+  $lightGray: #C7C7C7
+
+
 body
-  background-color: $background 
+  background-color: $background
 
 #container 
     background-color: $background

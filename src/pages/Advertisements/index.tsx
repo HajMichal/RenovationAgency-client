@@ -9,14 +9,15 @@ import {
 import { Dollar, Home, Search } from "../../icons";
 import { useQuery } from "@tanstack/react-query";
 import { getAllBuildings } from "../../fetchData/building/getAllBuildings";
+import { BuildingResponse } from "../../types";
 
 const Advertisements = () => {
-  const { data: allBUildings } = useQuery({
+  const { data: allBuildings, isSuccess } = useQuery({
     queryKey: ["buildingsData"],
     queryFn: () =>
       getAllBuildings({
         page: "0",
-        city: "",
+        city: "Bielsko",
         gtArea: "",
         ltArea: "",
         gtPrice: "",
@@ -24,9 +25,9 @@ const Advertisements = () => {
         zipcode: "",
       }),
   });
-  console.log(allBUildings);
+
   return (
-    <div id="container">
+    <div id="advertContainer">
       <div id="topBar">
         <Logo />
         <NavBar />
@@ -58,12 +59,10 @@ const Advertisements = () => {
           </div>
         </div>
         <div id="advertisements">
-          <AdvertisementCard
-            title="I need someone to help with renovation my bathroom"
-            price="12,500"
-            area="30"
-            city="Cracow"
-          />
+          {isSuccess &&
+            allBuildings.data.map((building: BuildingResponse) => (
+              <AdvertisementCard key={building.id} building={building} />
+            ))}
         </div>
       </div>
     </div>

@@ -2,9 +2,13 @@ import "./NavBar.sass";
 import { Avatar, Button, Menu, Switch, useMantineTheme } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
 import { MenuList } from "..";
+import useStore from "../../store/index";
 
 export const NavBar = () => {
   const theme = useMantineTheme();
+
+  const { updateTheme } = useStore();
+
   return (
     <div id="navContainer">
       <div id="profile">
@@ -27,7 +31,7 @@ export const NavBar = () => {
       <Switch
         size="xl"
         color="dark"
-        onChange={(e) => console.log(e.currentTarget.checked)}
+        onChange={(e) => updateTheme(e.currentTarget.checked)}
         onLabel={<IconSun color={theme.colors.yellow[4]} />}
         offLabel={<IconMoonStars color={theme.colors.blue[6]} />}
       />

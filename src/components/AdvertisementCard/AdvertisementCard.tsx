@@ -1,4 +1,5 @@
 import { Dollar, Home, Location } from "../../icons";
+import { BuildingResponse } from "../../types";
 import "./AdvertisementCard.sass";
 import { Text } from "@mantine/core";
 
@@ -9,31 +10,27 @@ interface AdvertisementCard {
   city: string;
   image?: string;
 }
-export const AdvertisementCard = ({
-  title,
-  price,
-  area,
-  city,
-  image,
-}: AdvertisementCard) => {
+
+interface AdvertisementCardProps {
+  building: BuildingResponse;
+}
+
+export const AdvertisementCard = ({ building }: AdvertisementCardProps) => {
+  const { title, estimatedCost, estimatedArea, city } = building;
   return (
     <div id="cardContainer">
-      <img
-        id="cardImage"
-        src={image ? image : "./images/torenovate.jpg"}
-        alt="advCard"
-      />
+      <img id="cardImage" src={"./images/torenovate.jpg"} alt="advCard" />
       <div id="cardContent">
         <Text id="title">{title}</Text>
         <div id="bottomSection">
           <Text id="bottomText">
             <Dollar />
-            {price} PLN
+            {estimatedCost} PLN
           </Text>
 
           <Text id="bottomText">
             <Home />
-            {area} M²
+            {estimatedArea} M²
           </Text>
 
           <Text id="bottomText">
