@@ -1,9 +1,9 @@
-@use '../../pages/main'
+@use '../../pages/main' as *
 
     
 #inputContent 
-    font-family: main.$font-stack
-    color: main.$fontColor
+    font-family: $font-stack
+    color: var(--fontColor)
     display: flex
     flex-direction: column
     gap: 3rem
@@ -12,7 +12,7 @@
     margin-right: 4vw
 
 .navlink 
-    font-family: main.$font-stack
-    color: main.$brand
+    font-family: $font-stack
+    color: var(--brand)
     text-decoration: none
     

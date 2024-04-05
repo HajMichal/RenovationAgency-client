@@ -10,8 +10,24 @@ import { Dollar, Home, Search } from "../../icons";
 import { useQuery } from "@tanstack/react-query";
 import { getAllBuildings } from "../../fetchData/building/getAllBuildings";
 import { BuildingResponse } from "../../types";
+import useStore from "../../store";
+import { useForm } from "react-hook-form";
+
+export interface Inputs {
+  search: string;
+  city: string;
+  zipcode: string;
+  ltPrice: string;
+  gtPrice: string;
+  ltArea: string;
+  gtArea: string;
+}
 
 const Advertisements = () => {
+  const { darkTheme } = useStore();
+
+  const { register } = useForm<Inputs>();
+
   const { data: allBuildings, isSuccess } = useQuery({
     queryKey: ["buildingsData"],
     queryFn: () =>
@@ -27,7 +43,7 @@ const Advertisements = () => {
   });
 
   return (
-    <div id="advertContainer">
+    <div id="advertContainer" data-theme={darkTheme ? "dark" : "light"}>
       <div id="topBar">
         <Logo />
         <NavBar />
@@ -38,6 +54,8 @@ const Advertisements = () => {
           <DoubleInput
             icon={<Search />}
             label="Search"
+            register={register}
+            formKeys={["search", "city"]}
             placeholders={["Type, keywords", "Location"]}
             className="mainInput"
           />
@@ -45,6 +63,8 @@ const Advertisements = () => {
             <DoubleInput
               icon={<Dollar />}
               label="Price"
+              register={register}
+              formKeys={["ltPrice", "gtPrice"]}
               placeholders={["Lowest", "Highest"]}
               number
               className="bottomInput"
@@ -52,6 +72,8 @@ const Advertisements = () => {
             <DoubleInput
               icon={<Home />}
               label="Area"
+              register={register}
+              formKeys={["ltArea", "gtArea"]}
               placeholders={["Lowest", "Highest"]}
               number
               className="bottomInput"

@@ -1,4 +1,4 @@
-@use '../../main'
+@use '../../main' as *
 @import '../../breakpoints.scss'
 
 
@@ -9,7 +9,7 @@
     max-height: 100vh
     height: 100vh
     overflow: hidden
-    background-color: main.$background
+    background-color: var(--background)
 
 #leftCol
     width: 30%

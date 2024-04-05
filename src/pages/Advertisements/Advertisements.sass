@@ -1,11 +1,12 @@
-@use '../../pages/main'
-    
+@use '../../pages/main' as *  
+
+
 #advertContainer
     display: flex
     flex-direction: column
     align-items: center
     overflow-x: hidden
-    background-color: main.$background
+    background-color: var(--background)
 
 #topBar
     width: 100vw,
@@ -20,13 +21,16 @@
     align-items: center
     max-width: 1000px
 
-
 #searchform
-    background-color: main.$primary
+    background-color: var(--primary)
     padding: 3vw
     padding-top: 2vw
     height: fit-content
     max-width: 1000px
+    label
+        color: var(--fontColor)
+    .icon
+        stroke: var(--dark)
 
 #bottomInputs
     display: flex
