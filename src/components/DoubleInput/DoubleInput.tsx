@@ -1,6 +1,6 @@
-import { Input } from "@mantine/core";
 import "./DoubleInput.sass";
 import useStore from "../../store";
+import { Input } from "@mantine/core";
 
 type FormKey =
   | "search"
@@ -36,8 +36,9 @@ export const DoubleInput = ({
   return (
     <Input.Wrapper id="wrapper" label={label}>
       {number ? (
-        <div style={{ display: "flex" }}>
+        <div className="doubleInputs">
           <Input
+            aria-label="leftInput"
             placeholder={placeholders[0]}
             leftSection={icon}
             className={className}
@@ -46,6 +47,7 @@ export const DoubleInput = ({
             onChange={(e) => handleOnChange(e.target.value, formKeys[0])}
           />
           <Input
+            aria-label="rightInput"
             placeholder={placeholders[1]}
             className={className}
             size="lg"
@@ -54,8 +56,9 @@ export const DoubleInput = ({
           />
         </div>
       ) : (
-        <div style={{ display: "flex" }}>
+        <div className="doubleInputs">
           <Input
+            aria-label="leftInput"
             placeholder={placeholders[0]}
             size="lg"
             leftSection={icon}
@@ -64,6 +67,7 @@ export const DoubleInput = ({
             onChange={(e) => handleOnChange(e.target.value, formKeys[0])}
           />
           <Input
+            aria-label="rightInput"
             placeholder={placeholders[1]}
             size="lg"
             className={className}

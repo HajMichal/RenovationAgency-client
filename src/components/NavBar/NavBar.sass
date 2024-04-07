@@ -1,27 +1,36 @@
 @use '../../pages/main' as *
+@import '../../pages/breakpoints.scss'
 
 #navContainer 
     display: flex
     align-items: center
-    max-height: 70px
+
     height: 100%
     background-color: var(--primary)
+    padding: 10px
     padding-left: 50px
     padding-right: 50px
     gap: 2rem
     border-bottom-left-radius: 20px
-
+    @include media("<tablet")
+        gap: 0
+        padding: 10px
+        flex-direction: column
 
 #profile
     display: flex
     gap: 0.5rem
     align-items: center
     transition-duration: 100ms
+
+
 #profile:hover
     cursor: pointer
     opacity: 0.35
 
 #text 
     font-weight: 600
+    @include media("<tablet")
+        display: none
 
-    
+

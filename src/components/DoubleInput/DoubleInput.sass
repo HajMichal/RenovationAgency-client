@@ -1,7 +1,30 @@
+@use '../../pages/main' as *
+@import '../../pages/breakpoints.scss'
 
 .mainInput
     width: 100%
 
 .bottomInput 
     width: 50%
+    @include media("<tablet")
+        width: 100%
+
+.doubleInputs
+    display: flex
+    @include media("<tablet")
+        display: block
+
+#wrapper
+    background-color: var(--primary)
+    color: var(--fontColor)
+    border-radius: 0px
+
+#wrapper[aria-label='rightInput']
+    border-bottom-right-radius: 5px
+    border-top-right-radius: 5px
+
+#wrapper[aria-label='leftInput']
+    border-bottom-left-radius: 5px
+    border-top-left-radius: 5px
+    
 

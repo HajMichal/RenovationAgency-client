@@ -23,17 +23,17 @@ export const AdvertisementCard = ({ building }: AdvertisementCardProps) => {
       <div id="cardContent">
         <Text id="title">{title}</Text>
         <div id="bottomSection">
-          <Text id="bottomText">
+          <Text className="bottomText" id="price">
             <Dollar />
-            {estimatedCost} PLN
+            {estimatedCost}
           </Text>
 
-          <Text id="bottomText">
+          <Text className="bottomText" id="area">
             <Home />
-            {estimatedArea} M²
+            {estimatedArea}
           </Text>
 
-          <Text id="bottomText">
+          <Text className="bottomText" id="city">
             <Location />
             {city}
           </Text>

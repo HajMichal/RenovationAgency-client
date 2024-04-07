@@ -1,5 +1,5 @@
 @use '../../pages/main' as *  
-
+@import "../breakpoints.scss"
 
 #advertContainer
     display: flex
@@ -13,6 +13,12 @@
     width: 100vw,
     display: flex,
     justify-content: space-between,
+    margin-bottom: 50px
+    @include media("<phone")
+        background-color: var(--primary)
+        -webkit-box-shadow: 0px 11px 33px -34px $fontColor
+        -moz-box-shadow: 0px 11px 33px -34px $fontColor
+        box-shadow: 0px 11px 33px -34px $fontColor
     
 #advertContent 
     display: flex
@@ -21,6 +27,8 @@
     justify-content: center
     align-items: center
     max-width: 1000px
+    @include media("<tablet")
+        width: 90%
 
 #searchform
     background-color: var(--primary)
@@ -31,14 +39,23 @@
     label
         color: var(--fontColor)
     .icon
-        stroke: var(--dark)
+        stroke: var(--fontColor)
+    div[data-position="left"]
+        background-color: var(--dark)
 
 #bottomInputs
     display: flex
     gap: 3rem
     margin-top: 15px
+    @include media("<phone")
+        display: block
 
 #advertisements
     margin-top: 2rem
     margin-bottom: 2rem
     width: 100%
+    @include media("<tablet")
+        justify-content: center
+        display: flex
+        flex-wrap: wrap
+        gap: 2rem

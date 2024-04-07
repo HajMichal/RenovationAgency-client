@@ -11,23 +11,6 @@ export const NavBar = () => {
 
   return (
     <div id="navContainer">
-      <div id="profile">
-        <Menu shadow="md" width={200}>
-          <Menu.Target>
-            <Button
-              size="xl"
-              color="dark"
-              id="text"
-              variant="transparent"
-              style={{ "--button-padding-x": 0 }}
-            >
-              <Avatar radius="xl" size={"lg"} style={{ marginRight: "5px" }} />
-              My profile
-            </Button>
-          </Menu.Target>
-          <MenuList />
-        </Menu>
-      </div>
       <Switch
         size="xl"
         color="dark"
@@ -35,6 +18,22 @@ export const NavBar = () => {
         onLabel={<IconSun color={theme.colors.yellow[4]} />}
         offLabel={<IconMoonStars color={theme.colors.blue[6]} />}
       />
+      <div id="profile">
+        <Menu shadow="md" width={200}>
+          <Menu.Target>
+            <Button
+              size="xl"
+              color="dark"
+              variant="transparent"
+              style={{ "--button-padding-x": 0 }}
+            >
+              <Avatar radius="xl" size={"lg"} style={{ marginRight: "5px" }} />
+              <p id="text"> My profile </p>
+            </Button>
+          </Menu.Target>
+          <MenuList />
+        </Menu>
+      </div>
     </div>
   );
 };

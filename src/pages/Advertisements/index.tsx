@@ -1,5 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "./Advertisements.sass";
+import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useDebouncedValue } from "@mantine/hooks";
 import {
   AdvertisementCard,
   AdvertsCount,
@@ -8,21 +11,11 @@ import {
   NavBar,
 } from "../../components";
 import { Dollar, Home, Search } from "../../icons";
-import { useQuery } from "@tanstack/react-query";
 import { getAllBuildings } from "../../fetchData/building/getAllBuildings";
 import { BuildingResponse } from "../../types";
 import useStore from "../../store";
-import { useEffect } from "react";
 
-export interface Inputs {
-  search: string;
-  city: string;
-  zipcode: string;
-  ltPrice: string;
-  gtPrice: string;
-  ltArea: string;
-  gtArea: string;
-}
+const debTime = 300;
 
 const Advertisements = () => {
   const { darkTheme, buildingStore } = useStore();
@@ -44,15 +37,23 @@ const Advertisements = () => {
         zipcode: "",
       }),
   });
+  const [debouncedLocation] = useDebouncedValue(
+    buildingStore.location,
+    debTime
+  );
+  const [debouncedGtArea] = useDebouncedValue(buildingStore.gtArea, debTime);
+  const [debouncedLtArea] = useDebouncedValue(buildingStore.ltArea, debTime);
+  const [debouncedGtPrice] = useDebouncedValue(buildingStore.gtPrice, debTime);
+  const [debouncedLtPrice] = useDebouncedValue(buildingStore.ltPrice, debTime);
 
   useEffect(() => {
     refetch();
   }, [
-    buildingStore.location,
-    buildingStore.gtArea,
-    buildingStore.ltArea,
-    buildingStore.gtPrice,
-    buildingStore.ltPrice,
+    debouncedLocation,
+    debouncedGtArea,
+    debouncedLtArea,
+    debouncedGtPrice,
+    debouncedLtPrice,
   ]);
 
   return (
