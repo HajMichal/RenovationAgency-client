@@ -1,11 +1,10 @@
 import { Input } from "@mantine/core";
 import "./DoubleInput.sass";
-import { type UseFormRegister } from "react-hook-form";
-import { type Inputs } from "../../pages/Advertisements";
+import useStore from "../../store";
 
 type FormKey =
   | "search"
-  | "city"
+  | "location"
   | "zipcode"
   | "ltPrice"
   | "gtPrice"
@@ -19,7 +18,6 @@ interface DoubleInput {
   formKeys: FormKey[];
   label: string;
   className: string;
-  register: UseFormRegister<Inputs>;
 }
 
 export const DoubleInput = ({
@@ -28,41 +26,49 @@ export const DoubleInput = ({
   placeholders,
   label,
   className,
-  register,
   formKeys,
 }: DoubleInput) => {
+  const { updateBuildingState } = useStore();
+
+  const handleOnChange = (value: string, key: FormKey) =>
+    updateBuildingState(key, value);
+
   return (
     <Input.Wrapper id="wrapper" label={label}>
       {number ? (
         <div style={{ display: "flex" }}>
           <Input
-            {...register(formKeys[0], { valueAsNumber: true })}
             placeholder={placeholders[0]}
             leftSection={icon}
             className={className}
             size="lg"
+            autoComplete="off"
+            onChange={(e) => handleOnChange(e.target.value, formKeys[0])}
           />
           <Input
-            {...register(formKeys[1], { valueAsNumber: true })}
             placeholder={placeholders[1]}
             className={className}
             size="lg"
+            autoComplete="off"
+            onChange={(e) => handleOnChange(e.target.value, formKeys[1])}
           />
         </div>
       ) : (
         <div style={{ display: "flex" }}>
           <Input
-            {...register(formKeys[0])}
             placeholder={placeholders[0]}
             size="lg"
             leftSection={icon}
             className={className}
+            autoComplete="off"
+            onChange={(e) => handleOnChange(e.target.value, formKeys[0])}
           />
           <Input
-            {...register(formKeys[1])}
             placeholder={placeholders[1]}
             size="lg"
             className={className}
+            autoComplete="off"
+            onChange={(e) => handleOnChange(e.target.value, formKeys[1])}
           />
         </div>
       )}

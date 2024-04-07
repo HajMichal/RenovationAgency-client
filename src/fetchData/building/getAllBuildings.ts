@@ -11,13 +11,16 @@ interface GetAllBuildings {
 }
 
 export const getAllBuildings = async (data: GetAllBuildings) => {
-  return await axios.get(
-    `${import.meta.env.VITE_SERVER_URL}/builds/0${
-      data.city && "?city=" + data.city
-    }${data.gtPrice && "&gtPrice=" + data.gtPrice}${
-      data.ltPrice && "&ltPrice=" + data.ltPrice
-    }${data.gtArea && "&gtArea=" + data.gtArea}${
-      data.ltArea && "&ltArea=" + data.ltArea
-    }${data.zipcode && "&zipcode=" + data.zipcode}`
-  );
+  const queryParams = new URLSearchParams();
+
+  if (data.city) queryParams.append("city", data.city);
+  if (data.gtPrice) queryParams.append("gtPrice", data.gtPrice);
+  if (data.ltPrice) queryParams.append("ltPrice", data.ltPrice);
+  if (data.gtArea) queryParams.append("gtArea", data.gtArea);
+  if (data.ltArea) queryParams.append("ltArea", data.ltArea);
+  if (data.zipcode) queryParams.append("zipcode", data.zipcode);
+
+  const url = `${import.meta.env.VITE_SERVER_URL}/builds/0?${queryParams}`;
+
+  return await axios.get(url);
 };
