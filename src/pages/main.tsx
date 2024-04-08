@@ -4,7 +4,7 @@ import Home from "./Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ErrorPage } from "../components/";
 import Advertisements from "./Advertisements";
-import SingleAd from "./Advertisements/[SingleAd]";
+import SingleAd from "./Advertisements/SingleAd";
 import Register from "./Auth/Register";
 import SignIn from "./Auth/Signin";
 import "./main.sass";
@@ -21,12 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/advertisements",
     element: <Advertisements />,
-    children: [
-      {
-        path: ":adid",
-        element: <SingleAd />,
-      },
-    ],
+  },
+  {
+    path: "/advertisements/:id",
+    element: <SingleAd />,
   },
   {
     path: "/auth",

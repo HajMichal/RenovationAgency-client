@@ -1,15 +1,8 @@
+import { Link } from "react-router-dom";
 import { Dollar, Home, Location } from "../../icons";
 import { BuildingResponse } from "../../types";
 import "./AdvertisementCard.sass";
 import { Text } from "@mantine/core";
-
-interface AdvertisementCard {
-  title: string;
-  price: string;
-  area: string;
-  city: string;
-  image?: string;
-}
 
 interface AdvertisementCardProps {
   building: BuildingResponse;
@@ -18,7 +11,7 @@ interface AdvertisementCardProps {
 export const AdvertisementCard = ({ building }: AdvertisementCardProps) => {
   const { title, estimatedCost, estimatedArea, city } = building;
   return (
-    <div id="cardContainer">
+    <Link to={`${building.id}`} id="cardContainer">
       <img id="cardImage" src={"./images/torenovate.jpg"} alt="advCard" />
       <div id="cardContent">
         <Text id="title">{title}</Text>
@@ -39,6 +32,6 @@ export const AdvertisementCard = ({ building }: AdvertisementCardProps) => {
           </Text>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

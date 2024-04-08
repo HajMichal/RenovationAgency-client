@@ -7,6 +7,8 @@ import { AdvertsCount } from "./AdvertsCount/AdvertsCount";
 import { AdvertisementCard } from "./AdvertisementCard/AdvertisementCard";
 import { NavBar } from "./NavBar/NavBar";
 import { MenuList } from "./Menu/Menu";
+import { PostHeader } from "./PostHeader/PostHeader";
+import { TextWithIconTile } from "./TextWithIconTile/TextWithIconTile";
 
 export {
   ErrorPage,
@@ -18,4 +20,6 @@ export {
   AdvertisementCard,
   NavBar,
   MenuList,
+  PostHeader,
+  TextWithIconTile,
 };

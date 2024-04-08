@@ -1,6 +1,6 @@
 import axios from "axios";
 
-interface GetAllBuildings {
+interface BuildingFilters {
   page: string;
   city: string;
   gtPrice: string;
@@ -10,7 +10,7 @@ interface GetAllBuildings {
   zipcode: string;
 }
 
-export const getAllBuildings = async (data: GetAllBuildings) => {
+export const getAllBuildings = async (data: BuildingFilters) => {
   const queryParams = new URLSearchParams();
 
   if (data.city) queryParams.append("city", data.city);

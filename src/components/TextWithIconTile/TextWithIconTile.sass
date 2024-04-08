@@ -1,0 +1,29 @@
+@use '../../pages/main' as *
+@import '../../pages/breakpoints.scss'
+
+#textWithIconTile
+    display: flex
+    align-items: flex-end
+    gap: 0.5rem
+    .icon
+        width: 34px
+        height: 34px
+        margin-bottom: 5px
+        @include media("<desktop")
+            width: 30px
+            height: 30px
+
+#specifier
+    color: var(--lightGray)
+    font-weight: 600
+    font-size: 13px
+    @include media("<desktop")
+        font-size: 11px
+
+#tileValue
+    color: var(--fontColor)
+    font-size: 17px
+    font-weight: 600
+    @include media("<desktop")
+        font-size: 15px
+
