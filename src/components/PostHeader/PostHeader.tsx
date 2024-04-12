@@ -13,7 +13,7 @@ interface PostHeader {
 
 export const PostHeader = (buildingData: PostHeader) => {
   return (
-    <div id="headerContainer">
+    <div className="singlAddComponentContainer">
       <div id="topSection">
         <Avatar size="lg" />
         <div>

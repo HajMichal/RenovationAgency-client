@@ -15,7 +15,7 @@ export const AdvertisementCard = ({ building }: AdvertisementCardProps) => {
       <img id="cardImage" src={"./images/torenovate.jpg"} alt="advCard" />
       <div id="cardContent">
         <Text id="title">{title}</Text>
-        <div id="bottomSection">
+        <div id="cardBottomSection">
           <Text className="bottomText" id="price">
             <Dollar />
             {estimatedCost}

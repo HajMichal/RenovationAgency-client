@@ -20,11 +20,7 @@ const debTime = 300;
 const Advertisements = () => {
   const { darkTheme, buildingStore } = useStore();
 
-  const {
-    data: allBuildings,
-    isSuccess,
-    refetch,
-  } = useQuery({
+  const { data: allBuildings, refetch } = useQuery({
     queryKey: ["buildingsData"],
     queryFn: () =>
       getAllBuildings({
@@ -37,10 +33,7 @@ const Advertisements = () => {
         zipcode: "",
       }),
   });
-  const [debouncedLocation] = useDebouncedValue(
-    buildingStore.location,
-    debTime
-  );
+  const [debouncedLocat] = useDebouncedValue(buildingStore.location, debTime);
   const [debouncedGtArea] = useDebouncedValue(buildingStore.gtArea, debTime);
   const [debouncedLtArea] = useDebouncedValue(buildingStore.ltArea, debTime);
   const [debouncedGtPrice] = useDebouncedValue(buildingStore.gtPrice, debTime);
@@ -49,7 +42,7 @@ const Advertisements = () => {
   useEffect(() => {
     refetch();
   }, [
-    debouncedLocation,
+    debouncedLocat,
     debouncedGtArea,
     debouncedLtArea,
     debouncedGtPrice,
@@ -92,7 +85,7 @@ const Advertisements = () => {
           </div>
         </div>
         <div id="advertisements">
-          {isSuccess &&
+          {allBuildings?.data &&
             allBuildings.data.map((building: BuildingResponse) => (
               <AdvertisementCard key={building.id} building={building} />
             ))}

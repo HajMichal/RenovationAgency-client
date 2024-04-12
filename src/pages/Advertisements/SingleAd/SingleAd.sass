@@ -3,6 +3,38 @@
 
 
 #singleAddContainer
+    padding: 0 1% 0 1%
     height: 100vh
     width: 100vw
     background-color: var(--background)
+
+#adContent
+    display: flex
+    gap: 30px
+
+#adContentColumnLeft
+    display: flex
+    flex-direction: column
+    gap: 30px
+    min-height: 100vh
+    width: 50%
+
+#adContentColumnRight
+    width: 50%
+
+.text
+    font-family: $font-stack    
+    color: var(--fontColor)
+    font-weight: 400
+
+.bigText
+    font-family: $font-stack
+    font-size: 2.5em
+    font-weight: 200
+    color: var(--fontColor)
+
+.singlAddComponentContainer
+    padding: 10px
+    background-color: var(--primary)
+    @include media("<laptop")
+        width: 100%

@@ -9,6 +9,9 @@ import { NavBar } from "./NavBar/NavBar";
 import { MenuList } from "./Menu/Menu";
 import { PostHeader } from "./PostHeader/PostHeader";
 import { TextWithIconTile } from "./TextWithIconTile/TextWithIconTile";
+import { DescriptionSection } from "./DescriptionSection/DescriptionSection";
+import { LocationMap } from "./LocationMap/LocationMap";
+import { ContactTile } from "./ContactTile/ContactTile";
 
 export {
   ErrorPage,
@@ -22,4 +25,7 @@ export {
   MenuList,
   PostHeader,
   TextWithIconTile,
+  DescriptionSection,
+  LocationMap,
+  ContactTile,
 };
