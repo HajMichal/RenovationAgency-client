@@ -53,12 +53,18 @@ const SingleAd = () => {
             <Footer />
           </div>
           <div id="adContentColumnRight">
-            <ContactTile />
+            <ContactTile phone={buildingData.user.phone} />
             <Map city={buildingData.city} address={buildingData.address} />
-            {isSuccessProposed &&
-              proposedBuildings.data.map((building: BuildingResponse) => (
-                <AdvertisementCard key={building.id} building={building} />
-              ))}
+            <div id="proposedAds">
+              {isSuccessProposed &&
+                proposedBuildings.data.map((building: BuildingResponse) => (
+                  <AdvertisementCard
+                    key={building.id}
+                    building={building}
+                    singleAdd
+                  />
+                ))}
+            </div>
           </div>
         </div>
       )}

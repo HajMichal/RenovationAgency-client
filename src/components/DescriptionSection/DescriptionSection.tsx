@@ -7,7 +7,7 @@ interface DescriptionSectionProps {
 export const DescriptionSection = memo(
   ({ description }: DescriptionSectionProps) => {
     return (
-      <div className="singlAddComponentContainer">
+      <div id="description" className="singlAddComponentContainer">
         <div className="bigText" style={{ paddingLeft: "8%" }}>
           Description
         </div>

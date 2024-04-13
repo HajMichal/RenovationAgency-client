@@ -4,14 +4,19 @@
 #footerContainer
     background-color: var(--primary)
     padding: 2rem
-    width: 100%
+    width: 48%
     text-align: center
     font-family: $font-stack
+    z-index: 0
+    position: fixed
+    bottom: 0
     a 
         text-decoration: none
         color: var(--fontColor)
         transition-duration: 100ms
     a:hover
         color: var(--brand)
-    
+    @include media("<laptop")
+        width: 88% 
+
 

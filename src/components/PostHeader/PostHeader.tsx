@@ -27,7 +27,9 @@ export const PostHeader = (buildingData: PostHeader) => {
       <hr id="line" />
       <div id="bottomSection">
         <TextWithIconTile
-          text={buildingData.estimatedCost}
+          text={buildingData.estimatedCost
+            .toString()
+            .replace(/\b(\d{1,3})(?=(\d{3})+(?!\d))/g, "$1,")}
           specifier={"Amount"}
           Icon={Dollar}
         />

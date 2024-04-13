@@ -12,13 +12,15 @@
     box-shadow: 0px 11px 33px -26px $fontColor
     text-decoration: none
     transition-duration: 100ms
+    z-index: 99
     @include media("<tablet")
         display: block
         height: auto
         width: full
         max-width: 225px
     @include media("<phone")
-        width: 100%     
+        width: 100%  
+
 #cardContainer:hover
     -webkit-box-shadow: 0px 11px 33px -20px $fontColor
     -moz-box-shadow: 0px 11px 33px -20px $fontColor
