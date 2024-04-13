@@ -10,8 +10,9 @@ import { MenuList } from "./Menu/Menu";
 import { PostHeader } from "./PostHeader/PostHeader";
 import { TextWithIconTile } from "./TextWithIconTile/TextWithIconTile";
 import { DescriptionSection } from "./DescriptionSection/DescriptionSection";
-import { LocationMap } from "./LocationMap/LocationMap";
+import { Map } from "./Map/Map";
 import { ContactTile } from "./ContactTile/ContactTile";
+import { Footer } from "./Footer/Footer";
 
 export {
   ErrorPage,
@@ -26,6 +27,7 @@ export {
   PostHeader,
   TextWithIconTile,
   DescriptionSection,
-  LocationMap,
+  Map,
   ContactTile,
+  Footer,
 };

@@ -12,7 +12,7 @@ export const AdvertisementCard = ({ building }: AdvertisementCardProps) => {
   const { title, estimatedCost, estimatedArea, city } = building;
   return (
     <Link to={`${building.id}`} id="cardContainer">
-      <img id="cardImage" src={"./images/torenovate.jpg"} alt="advCard" />
+      <img id="cardImage" src={"/images/torenovate.jpg"} alt="advCard" />
       <div id="cardContent">
         <Text id="title">{title}</Text>
         <div id="cardBottomSection">

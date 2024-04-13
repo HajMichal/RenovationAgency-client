@@ -2,12 +2,12 @@ import axios from "axios";
 
 interface BuildingFilters {
   page: string;
-  city: string;
-  gtPrice: string;
-  ltPrice: string;
-  gtArea: string;
-  ltArea: string;
-  zipcode: string;
+  city?: string;
+  gtPrice?: string;
+  ltPrice?: string;
+  gtArea?: string;
+  ltArea?: string;
+  zipcode?: string;
 }
 
 export const getAllBuildings = async (data: BuildingFilters) => {

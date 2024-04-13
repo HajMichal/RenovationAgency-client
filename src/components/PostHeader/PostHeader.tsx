@@ -15,13 +15,13 @@ export const PostHeader = (buildingData: PostHeader) => {
   return (
     <div className="singlAddComponentContainer">
       <div id="topSection">
-        <Avatar size="lg" />
+        <Avatar size="xl" />
         <div>
           <Text id="title">{buildingData.title}</Text>
-          <Text className="textWithIcon">
+          <div className="textWithIcon">
             <Location />
-            {buildingData.city}
-          </Text>
+            <Text>{buildingData.city}</Text>
+          </div>
         </div>
       </div>
       <hr id="line" />
