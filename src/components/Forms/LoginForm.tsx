@@ -1,9 +1,10 @@
-import "./LoginForm.sass";
-import { Button, PasswordInput, TextInput, Text } from "@mantine/core";
+import "./Forms.sass";
+import { PasswordInput, TextInput } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../fetchData/user/login";
+import { StepButton } from "..";
 
 interface Inputs {
   email: string;
@@ -25,7 +26,11 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} id="inputContent">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="formContent"
+      id="loginForm"
+    >
       <TextInput
         {...register("email", { required: true })}
         size="md"
@@ -40,28 +45,11 @@ export const LoginForm = () => {
         placeholder="Type here..."
         error={isError && "Something went wrong"}
       />
-      <Text
-        style={{ width: "100%", textAlign: "center" }}
-        size="sm"
-        c={"orange"}
-      >
-        <Link className="navlink" to="/auth/register">
-          Create account
-        </Link>
-      </Text>
-      <Button
-        variant="gradient"
-        gradient={{ from: "rgba(255, 94, 0, 1)", deg: 90, to: "orange" }}
-        size="compact-xl"
-        style={{
-          fontSize: "24px",
-          fontStyle: "italic",
-        }}
-        color="orange"
-        type="submit"
-      >
-        Log In
-      </Button>
+      <StepButton
+        redirectUrl="register"
+        redirectText="Create account"
+        buttonText="Sign In"
+      />
     </form>
   );
 };

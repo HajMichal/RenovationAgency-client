@@ -1,5 +1,5 @@
 import { ImgWithBg, LoginForm, Logo } from "../../../components";
-import "./Signin.sass";
+import "../Auth.sass";
 
 const SignIn = () => {
   return (

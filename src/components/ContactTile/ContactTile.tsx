@@ -1,6 +1,7 @@
 import { memo } from "react";
 import "./ContactTile.sass";
 import { Button, Popover, Text } from "@mantine/core";
+import { Phone } from "../../icons";
 
 interface ContactTileProps {
   phone: string;
@@ -19,7 +20,12 @@ export const ContactTile = memo(({ phone }: ContactTileProps) => {
             </Button>
           </Popover.Target>
           <Popover.Dropdown>
-            <Text size="xl" id="bigText">
+            <Text
+              size="xl"
+              id="bigText"
+              style={{ alignItems: "center", display: "flex" }}
+            >
+              <Phone />
               {phone.replace(/(\d{3})(?=\d)/g, "$1 ")}
             </Text>
           </Popover.Dropdown>
