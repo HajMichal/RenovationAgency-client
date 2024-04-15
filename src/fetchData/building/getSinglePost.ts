@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosAuthenticatedInstance from "../axiosAuthenticatedInstace";
 
 interface GetSingleBuildingResponse {
   id: number;
@@ -30,7 +30,9 @@ interface GetSingleBuildingResponse {
 export const getSingleBuilding = async (
   id: string
 ): Promise<GetSingleBuildingResponse> => {
-  const url = `${import.meta.env.VITE_SERVER_URL}/builds/singlePost/${id}`;
-  const response = await axios.get(url);
+  const response = await axiosAuthenticatedInstance.get(
+    "/builds/singlePost/" + id
+  );
+
   return response.data;
 };

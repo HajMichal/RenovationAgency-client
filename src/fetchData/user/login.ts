@@ -5,8 +5,15 @@ interface Login {
   password: string;
 }
 export const login = async (data: Login) => {
-  return await axios.post(`${import.meta.env.VITE_SERVER_URL}/user/signin`, {
-    login: data.email,
-    password: data.password,
-  });
+  const response = await axios.post(
+    `${import.meta.env.VITE_SERVER_URL}/user/signin`,
+    {
+      login: data.email,
+      password: data.password,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
 };

@@ -1,36 +1,29 @@
 import "./Forms.sass";
 import { PasswordInput, TextInput } from "@mantine/core";
-import { SubmitHandler, useForm } from "react-hook-form";
-import useStore from "../../store";
+import { memo } from "react";
+import { RegisterFormProps } from "../../types/user/registrationData";
 
-interface Inputs {
-  email: string;
-  password: string;
-}
-
-export const RegisterFirstForm = () => {
-  const { updateRegisterState } = useStore();
-  const { register, handleSubmit } = useForm<Inputs>();
-
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    updateRegisterState("email", data.email);
-    updateRegisterState("password", data.password);
-  };
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="formContent">
-      <TextInput
-        {...register("email", { required: true })}
-        size="md"
-        label="Email"
-        placeholder="Type here..."
-      />
-      <PasswordInput
-        {...register("password", { required: true })}
-        size="md"
-        label="Password"
-        placeholder="Type here..."
-      />
-    </form>
-  );
-};
+export const RegisterFirstForm = memo(
+  ({ userData, setUserData }: RegisterFormProps) => {
+    return (
+      <form className="formContent">
+        <TextInput
+          onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+          value={userData.email}
+          size="md"
+          label="Email"
+          placeholder="Type here..."
+        />
+        <PasswordInput
+          onChange={(e) =>
+            setUserData({ ...userData, password: e.target.value })
+          }
+          value={userData.password}
+          size="md"
+          label="Password"
+          placeholder="Type here..."
+        />
+      </form>
+    );
+  }
+);

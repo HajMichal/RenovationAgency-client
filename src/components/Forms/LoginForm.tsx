@@ -5,6 +5,7 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../fetchData/user/login";
 import { StepButton } from "..";
+import useSignIn from "react-auth-kit/hooks/useSignIn";
 
 interface Inputs {
   email: string;
@@ -13,9 +14,18 @@ interface Inputs {
 
 export const LoginForm = () => {
   const navigate = useNavigate();
+  const signIn = useSignIn();
+
   const { mutate, isError } = useMutation({
     mutationFn: login,
-    onSuccess: () => {
+    onSuccess: ({ data }) => {
+      signIn({
+        auth: {
+          token: data.accessToken,
+          type: "Bearer",
+        },
+        userState: data.user,
+      });
       navigate("/advertisements");
     },
   });

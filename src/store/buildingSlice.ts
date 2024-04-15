@@ -9,7 +9,6 @@ export type BuildingSlice = {
     ltArea: string;
     gtArea: string;
   };
-
   updateBuildingState: (key: string, state: string | number | boolean) => void;
 };
 

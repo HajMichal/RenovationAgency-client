@@ -15,10 +15,13 @@ import {
 import useStore from "../../../store";
 import { getAllBuildings } from "../../../fetchData/building/getAllBuildings";
 import { BuildingResponse } from "../../../types";
+import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 
 const SingleAd = () => {
   const { id } = useParams();
+  const authUser = useAuthUser();
   const { darkTheme } = useStore();
+  console.log(authUser);
   const { data: buildingData, isSuccess } = useQuery({
     queryKey: ["singleBuilding"],
     queryFn: () => getSingleBuilding(id!),
@@ -32,7 +35,6 @@ const SingleAd = () => {
         gtPrice: buildingData?.estimatedCost.toString(),
       }),
   });
-
   return (
     <div id="singleAddContainer" data-theme={darkTheme ? "dark" : "light"}>
       <div id="topBar">

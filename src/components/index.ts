@@ -17,6 +17,7 @@ import { RegisterFirstForm } from "./Forms/RegisterFirstForm";
 import { RegisterSecondForm } from "./Forms/RegisterSecondForm";
 import { RegisterThirdForm } from "./Forms/RegisterThirdForm";
 import { StepButton } from "./Forms/StepButton";
+import { StepperComponent } from "./Stepper/Stepper";
 
 export {
   ErrorPage,
@@ -38,4 +39,5 @@ export {
   RegisterSecondForm,
   RegisterThirdForm,
   StepButton,
+  StepperComponent,
 };

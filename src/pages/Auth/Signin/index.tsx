@@ -3,7 +3,7 @@ import "../Auth.sass";
 
 const SignIn = () => {
   return (
-    <div id="container">
+    <div id="container" data-theme={"light"}>
       <div id="leftCol">
         <Logo />
         <LoginForm />

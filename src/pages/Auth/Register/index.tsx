@@ -1,4 +1,4 @@
-import { Stepper } from "@mantine/core";
+import "../Auth.sass";
 import {
   ImgWithBg,
   Logo,
@@ -6,27 +6,54 @@ import {
   RegisterSecondForm,
   RegisterThirdForm,
   StepButton,
+  StepperComponent,
 } from "../../../components";
 import { useState } from "react";
 
 const Register = () => {
-  const [active, setActive] = useState(0);
+  const [active, setStep] = useState(0);
+  const [highestStepVisited, setHighestStepVisited] = useState(active);
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+    name: "",
+    phone: "",
+    city: "",
+    address: "",
+  });
+
+  const handleStepChange = (nextStep: number) => {
+    const isOutOfBounds = nextStep > 3 || nextStep < 0;
+
+    if (isOutOfBounds) return;
+
+    setStep(nextStep);
+    setHighestStepVisited((hSC) => Math.max(hSC, nextStep));
+  };
+
   return (
-    <div id="container">
+    <div id="container" data-theme={"light"}>
       <div id="leftCol">
         <Logo />
-        <Stepper active={active} color="orange" style={{ marginTop: "15vh" }}>
-          <Stepper.Step description="first step" />
-          <Stepper.Step description="second step" />
-          <Stepper.Step description="third step" />
-        </Stepper>
-        {active === 0 && <RegisterFirstForm />}
-        {active === 1 && <RegisterSecondForm />}
+        <StepperComponent
+          highestStepVisited={highestStepVisited}
+          active={active}
+          setStep={setStep}
+        />
+        {active === 0 && (
+          <RegisterFirstForm userData={userData} setUserData={setUserData} />
+        )}
+        {active === 1 && (
+          <RegisterSecondForm userData={userData} setUserData={setUserData} />
+        )}
         {active === 2 && <RegisterThirdForm />}
         <StepButton
           redirectUrl="signin"
           redirectText="Sign In!"
           buttonText="Next Step"
+          setStep={handleStepChange}
+          step={active}
+          userData={userData}
         />
       </div>
       <ImgWithBg />

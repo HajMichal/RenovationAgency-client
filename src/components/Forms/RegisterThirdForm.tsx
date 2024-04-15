@@ -1,21 +1,17 @@
+import { memo } from "react";
 import "./Forms.sass";
+import { Button, Text } from "@mantine/core";
 
-export const RegisterThirdForm = () => {
+export const RegisterThirdForm = memo(() => {
   return (
-    <div className="divContent">
-      {/* <Button
-        variant="gradient"
-        gradient={{ from: "rgba(255, 94, 0, 1)", deg: 90, to: "orange" }}
-        size="compact-xl"
-        style={{
-          fontSize: "24px",
-          fontStyle: "italic",
-        }}
-        color="orange"
-        type="submit"
-      >
-        Next step
-      </Button> */}
+    <div className="centerItems" style={{ marginTop: "2rem" }}>
+      <Text id="shortDescription">
+        If you want to have access to take orders create contractor account
+      </Text>
+      <Button variant="outline" id="outlinedButton">
+        Create contractor
+      </Button>
+      <Text id="shortDescription">Otherwise</Text>
     </div>
   );
-};
+});
