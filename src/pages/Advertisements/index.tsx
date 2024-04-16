@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import "./Advertisements.sass";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -19,7 +18,6 @@ const debTime = 300;
 
 const Advertisements = () => {
   const { darkTheme, buildingStore } = useStore();
-
   const { data: allBuildings, refetch } = useQuery({
     queryKey: ["buildingsData"],
     queryFn: () =>
@@ -47,6 +45,7 @@ const Advertisements = () => {
     debouncedLtArea,
     debouncedGtPrice,
     debouncedLtPrice,
+    refetch,
   ]);
 
   return (

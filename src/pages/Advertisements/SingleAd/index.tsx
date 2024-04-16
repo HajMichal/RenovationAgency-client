@@ -1,5 +1,5 @@
 import "./SingleAd.sass";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getSingleBuilding } from "../../../fetchData/building/getSinglePost";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -15,13 +15,23 @@ import {
 import useStore from "../../../store";
 import { getAllBuildings } from "../../../fetchData/building/getAllBuildings";
 import { BuildingResponse } from "../../../types";
+import { useSession } from "../../../hooks/useSession";
+import { useEffect } from "react";
 
 const SingleAd = () => {
   const { id } = useParams();
   const { darkTheme } = useStore();
+  const { userData } = useSession();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userData) navigate("/auth/signin");
+  }, [userData, navigate]);
+
   const { data: buildingData, isSuccess } = useQuery({
-    queryKey: ["singleBuilding"],
+    queryKey: ["singleBuilding", id],
     queryFn: () => getSingleBuilding(id!),
+    enabled: !!userData,
   });
 
   const { data: proposedBuildings, isSuccess: isSuccessProposed } = useQuery({
@@ -31,7 +41,9 @@ const SingleAd = () => {
         page: "0",
         gtPrice: buildingData?.estimatedCost.toString(),
       }),
+    enabled: !!buildingData,
   });
+
   return (
     <div id="singleAddContainer" data-theme={darkTheme ? "dark" : "light"}>
       <div id="topBar">

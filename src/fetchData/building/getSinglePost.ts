@@ -33,6 +33,5 @@ export const getSingleBuilding = async (
   const response = await axiosAuthenticatedInstance.get(
     "/builds/singlePost/" + id
   );
-
   return response.data;
 };

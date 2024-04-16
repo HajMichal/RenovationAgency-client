@@ -5,6 +5,7 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../fetchData/user/login";
 import { StepButton } from "..";
+import { useSession } from "../../hooks/useSession";
 
 interface Inputs {
   email: string;
@@ -13,11 +14,13 @@ interface Inputs {
 
 export const LoginForm = () => {
   const navigate = useNavigate();
+  const { setSessionData } = useSession();
 
   const { mutate, isError } = useMutation({
     mutationFn: login,
-    onSuccess: () => {
+    onSuccess: ({ data }) => {
       navigate("/advertisements");
+      setSessionData(data.user, true);
     },
   });
   const { register, handleSubmit } = useForm<Inputs>();
