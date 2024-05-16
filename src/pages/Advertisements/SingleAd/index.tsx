@@ -4,13 +4,13 @@ import { getSingleBuilding } from "../../../fetchData/building/getSinglePost";
 import { useQuery } from "@tanstack/react-query";
 import {
   AdvertisementCard,
+  Chat,
   ContactTile,
   DescriptionSection,
   Footer,
-  Logo,
   Map,
-  NavBar,
   PostHeader,
+  TopBar,
 } from "../../../components";
 import useStore from "../../../store";
 import { getAllBuildings } from "../../../fetchData/building/getAllBuildings";
@@ -46,10 +46,8 @@ const SingleAd = () => {
 
   return (
     <div id="singleAddContainer" data-theme={darkTheme ? "dark" : "light"}>
-      <div id="topBar">
-        <Logo />
-        <NavBar />
-      </div>
+      <TopBar />
+
       {isSuccess && (
         <div id="adContent">
           <div id="adContentColumnLeft">
@@ -79,6 +77,7 @@ const SingleAd = () => {
           </div>
         </div>
       )}
+      <Chat />
     </div>
   );
 };

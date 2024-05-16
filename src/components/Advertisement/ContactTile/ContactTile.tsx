@@ -1,7 +1,7 @@
 import { memo } from "react";
 import "./ContactTile.sass";
 import { Button, Popover, Text } from "@mantine/core";
-import { Phone } from "../../icons";
+import { Phone } from "../../../icons";
 
 interface ContactTileProps {
   phone: string;

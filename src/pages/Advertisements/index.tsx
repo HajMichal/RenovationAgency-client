@@ -6,8 +6,7 @@ import {
   AdvertisementCard,
   AdvertsCount,
   DoubleInput,
-  Logo,
-  NavBar,
+  TopBar,
 } from "../../components";
 import { Dollar, Home, Search } from "../../icons";
 import { getAllBuildings } from "../../fetchData/building/getAllBuildings";
@@ -50,10 +49,7 @@ const Advertisements = () => {
 
   return (
     <div id="advertContainer" data-theme={darkTheme ? "dark" : "light"}>
-      <div id="topBar">
-        <Logo />
-        <NavBar />
-      </div>
+      <TopBar />
       <div id="advertContent">
         <AdvertsCount />
         <div id="searchform">

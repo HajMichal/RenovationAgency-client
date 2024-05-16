@@ -15,15 +15,12 @@ interface GetSingleBuildingResponse {
     id: number;
     deadline: string;
     buildingId: number;
-    contractorId: null;
+    contractorId: null | number;
   };
   user: {
     id: number;
-    name: string;
     email: string;
     phone: string;
-    address: string;
-    createdat: string;
   };
 }
 
@@ -33,5 +30,6 @@ export const getSingleBuilding = async (
   const response = await axiosAuthenticatedInstance.get(
     "/builds/singlePost/" + id
   );
+  console.log(response.data);
   return response.data;
 };

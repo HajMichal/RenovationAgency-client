@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Dollar, Home, Location } from "../../icons";
-import { BuildingResponse } from "../../types";
+import { Dollar, Home, Location } from "../../../icons";
+import { BuildingResponse } from "../../../types";
 import "./AdvertisementCard.sass";
 import { Text } from "@mantine/core";
 

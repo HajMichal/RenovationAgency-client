@@ -6,7 +6,7 @@ interface Login {
 }
 export const login = async (data: Login) => {
   const response = await axios.post(
-    `${import.meta.env.VITE_SERVER_URL}/user/signin`,
+    `${import.meta.env.VITE_SERVER_URL}/auth/signin`,
     {
       login: data.email,
       password: data.password,

@@ -11,12 +11,32 @@ import "./main.sass";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { CreateAd } from "./Advertisements/CreateAd";
+import Profile from "./Profile";
+import ContractorProfile from "./Profile/ContractorProfile";
+import UserAds from "./Profile/UserAds";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/profile/contractor",
+    element: <ContractorProfile />,
+  },
+  {
+    path: "/yourAds",
+    element: <UserAds />,
+  },
+  {
+    path: "/createAd",
+    element: <CreateAd />,
   },
   {
     path: "/advertisements",
