@@ -30,6 +30,6 @@ export const getSingleBuilding = async (
   const response = await axiosAuthenticatedInstance.get(
     "/builds/singlePost/" + id
   );
-  console.log(response.data);
+
   return response.data;
 };

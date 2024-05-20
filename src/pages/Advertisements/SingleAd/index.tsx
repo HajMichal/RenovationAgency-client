@@ -43,7 +43,6 @@ const SingleAd = () => {
       }),
     enabled: !!buildingData,
   });
-
   return (
     <div id="singleAddContainer" data-theme={darkTheme ? "dark" : "light"}>
       <TopBar />
@@ -75,9 +74,9 @@ const SingleAd = () => {
                 ))}
             </div>
           </div>
+          <Chat recipientId={buildingData.userId} />
         </div>
       )}
-      <Chat />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 import useStore from "../../store";
 import { MapProps } from "../../types";
-import { GetLatLng } from "../../fetchData/building/GetLatLng";
+import { GetLatLng } from "../../fetchData/building/getLatLng";
 
 export const Map = memo(({ city, address }: MapProps) => {
   const { darkTheme } = useStore();
