@@ -20,3 +20,6 @@ export * from "./Stepper/Stepper";
 export * from "./TopBar/TopBar";
 export * from "./Advertisement/AdvertisementCard/AdvertisementCard";
 export * from "./Chat/Chat";
+export * from "./Advertisement/LeftColumn/LeftColumn";
+export * from "./Advertisement/RightColumn/RightColumn";
+export * from "./Advertisement/ProposedAds/ProposedAds";

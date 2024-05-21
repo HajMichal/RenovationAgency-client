@@ -1,4 +1,4 @@
-export interface BuildingResponse {
+export interface BuildingsResponse {
   id: number;
   address: string;
   city: string;

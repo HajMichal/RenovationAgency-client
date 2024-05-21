@@ -1,4 +1,6 @@
-import { BuildingResponse } from "./buildings/buildingResponse";
-import { MapProps } from "./buildings/mapProps";
+export * from "./buildings/buildingsResponse";
+export * from "./buildings/mapProps";
+export * from "./buildings/singleBuildingResponse";
 
-export type { BuildingResponse, MapProps };
+export * from "./user/registrationData";
+export * from "./user/useData";
