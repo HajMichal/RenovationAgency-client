@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import useStore from "../../../store";
 import { useSession } from "../../../hooks/useSession";
-import { Chat, LeftColumn, RightColumn, TopBar } from "../../../components";
+import { LeftColumn, RightColumn, TopBar } from "../../../components";
 import { getSingleBuilding } from "../../../fetchData/building/getSinglePost";
 
 const SingleAd = () => {
@@ -31,7 +31,6 @@ const SingleAd = () => {
         <div id="adContent">
           <LeftColumn buildingData={buildingData} />
           <RightColumn buildingData={buildingData} />
-          <Chat recipientId={buildingData.userId} />
         </div>
       )}
     </div>
