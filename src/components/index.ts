@@ -23,3 +23,5 @@ export * from "./Chat/Chat";
 export * from "./Advertisement/LeftColumn/LeftColumn";
 export * from "./Advertisement/RightColumn/RightColumn";
 export * from "./Advertisement/ProposedAds/ProposedAds";
+export * from "./Advertisement/SearchField/SearchField";
+export * from "./Advertisement/AdvertisementList/AdvertisementList";

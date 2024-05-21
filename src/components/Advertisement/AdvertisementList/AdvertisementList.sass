@@ -1,0 +1,13 @@
+@use '../../../pages/main' as *
+@import '../../../pages/breakpoints.scss'
+
+
+#advertisements
+    margin-top: 2rem
+    margin-bottom: 2rem
+    width: 100%
+    @include media("<tablet")
+        justify-content: center
+        display: flex
+        flex-wrap: wrap
+        gap: 2rem
