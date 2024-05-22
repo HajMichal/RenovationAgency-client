@@ -12,7 +12,7 @@ export const MessageBubble = ({ senderId, body }: MessageBubbleProps) => {
     <div
       className={`chat-bubble ${senderId === userData?.id ? "user" : "other"}`}
     >
-      <p>{body}</p>
+      <p style={{ width: "fit-content" }}>{body}</p>
     </div>
   );
 };

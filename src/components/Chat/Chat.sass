@@ -4,6 +4,7 @@
 #chatContainer 
     position: absolute
     width: '100%'
+    min-width: 320px
     height: 500px
     bottom: 30px
     margin: 0 10px 0 3px
@@ -12,15 +13,10 @@
     -moz-box-shadow: 0px 3px 24px -10px rgba(66, 68, 90, 1)
     box-shadow: 0px 3px 24px -10px rgba(66, 68, 90, 1)
     padding: 10px
-    z-index: 99
+    z-index: 999
     @include media(">tablet")
         right: 30px
         max-width: 400px
 
-#messageContainer
-    margin-top: 20px
-    height: 430px
-    overflow-y: scroll
-    display: flex
-    flex-direction: column
+
 
